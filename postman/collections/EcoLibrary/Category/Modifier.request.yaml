@@ -1,0 +1,5 @@
+$kind: http-request
+name: Modifier
+url: /category/{id}
+method: PUT
+order: 4137617690228195

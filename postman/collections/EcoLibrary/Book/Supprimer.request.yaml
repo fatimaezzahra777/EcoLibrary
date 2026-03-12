@@ -1,0 +1,5 @@
+$kind: http-request
+name: Supprimer
+url: /livre/{id}
+method: DELETE
+order: 3617970641456068

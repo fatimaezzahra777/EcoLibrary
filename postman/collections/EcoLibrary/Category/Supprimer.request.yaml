@@ -1,0 +1,5 @@
+$kind: http-request
+name: Supprimer
+url: /category/{id}
+method: DELETE
+order: 4148486020904503

@@ -1,0 +1,12 @@
+$kind: http-request
+name: Créer
+url: "{{base_url}}/category"
+method: POST
+body:
+  type: json
+  content: |-
+    {
+     "name": "Informatique",
+     "description": "Livres programmation"
+    }
+order: 3841331128626769

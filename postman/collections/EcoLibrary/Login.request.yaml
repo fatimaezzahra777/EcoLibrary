@@ -1,0 +1,15 @@
+$kind: http-request
+name: Login
+url: "{{base_url}}/login"
+method: POST
+headers:
+  Accept: application/json
+  Authorization: application/json
+body:
+  type: json
+  content: |-
+    {
+        "email": "FatimaEzzahra@gmail.com",
+        "password" : "azertyuiop"
+    }
+order: 4278379702658567

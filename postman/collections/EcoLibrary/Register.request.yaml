@@ -1,0 +1,17 @@
+$kind: http-request
+name: Register
+url: "{{base_url}}/register"
+method: POST
+headers:
+  Accept: application/json
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+        "name" : "amal",
+        "email" : "amal@gmail.com",
+        "password": "azertyuiop",
+        "password_confirmation": "azertyuiop"
+    }
+order: 4149611690440092
