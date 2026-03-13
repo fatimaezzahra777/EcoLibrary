@@ -1,5 +1,5 @@
 $kind: http-request
 name: Créer
-url: /livre
+url: "{{base_url}}/livres"
 method: POST
 order: 3416495329732408

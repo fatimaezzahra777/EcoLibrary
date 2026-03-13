@@ -4,12 +4,14 @@ url: "{{base_url}}/login"
 method: POST
 headers:
   Accept: application/json
-  Authorization: application/json
+  Authorization: Bearer 7|n2vy2P9ybz99hp4JjUkuzMC4zWlZXvLhNDk1nJnu2c042fc9
 body:
   type: json
   content: |-
     {
-        "email": "FatimaEzzahra@gmail.com",
+        "email": "chaimae@gmail.com",
         "password" : "azertyuiop"
     }
+auth:
+  type: apikey
 order: 4278379702658567

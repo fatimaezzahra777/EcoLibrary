@@ -1,5 +1,8 @@
 $kind: http-request
 name: Afficher
-url: /category
+url: "{{base_url}}/category"
 method: GET
+headers:
+  Accept: application/json
+  Content-Type: application/json
 order: 1773230141282

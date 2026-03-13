@@ -9,9 +9,10 @@ body:
   type: json
   content: |-
     {
-        "name" : "amal",
-        "email" : "amal@gmail.com",
+        "name" : "chaimae",
+        "email" : "chaimae@gmail.com",
         "password": "azertyuiop",
-        "password_confirmation": "azertyuiop"
+        "password_confirmation": "azertyuiop",
+        "role": "admin"
     }
 order: 4149611690440092

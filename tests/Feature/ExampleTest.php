@@ -9,6 +9,6 @@ uses(WithFaker::class);
  
 test('test_the_application_returns_a_successful_response', function(){
         login()
-        ->get('/api/books')
+        ->get('/api/livres')
         ->assertStatus(200);
 });

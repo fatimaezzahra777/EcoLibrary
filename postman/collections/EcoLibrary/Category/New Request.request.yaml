@@ -1,0 +1,5 @@
+$kind: http-request
+name: New Request
+url: "{{base_url}}/category"
+method: POST
+order: 4344053229613543

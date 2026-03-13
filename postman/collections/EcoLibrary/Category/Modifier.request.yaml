@@ -1,5 +1,5 @@
 $kind: http-request
 name: Modifier
-url: /category/{id}
+url: "{{base_url}}/category"
 method: PUT
 order: 4137617690228195

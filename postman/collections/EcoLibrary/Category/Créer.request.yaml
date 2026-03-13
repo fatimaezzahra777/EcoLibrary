@@ -2,6 +2,10 @@ $kind: http-request
 name: Créer
 url: "{{base_url}}/category"
 method: POST
+headers:
+  Accept: application/json
+  Authorization: Bearer 8|4TpH54yTiBCRCVuJr824NLZRFRMJXwvOtBrAfr5E237ea9a8
+  Content-Type: application/json
 body:
   type: json
   content: |-

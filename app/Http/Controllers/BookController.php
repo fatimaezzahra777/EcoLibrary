@@ -46,7 +46,7 @@ class BookController extends Controller
     {
         $book->update($request->all());
 
-        return response->json($book);
+        return response()->json($book);
     }
 
     /**
@@ -57,7 +57,7 @@ class BookController extends Controller
         $book->delete();
 
         return response()->json([
-            'message' => 'Book deleted'
+            'message' => 'Livre est supprimée'
         ]);
     }
 }

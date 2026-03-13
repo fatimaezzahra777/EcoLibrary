@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\TestController;
 
 Route::get('/test', function (){
     return response()->json([
@@ -21,16 +22,14 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 
-Route::get('/categories', [CategoryController::class, 'index']);
-Route::get('/categories/{categorie}', [CategoryController::class, 'show']);
-
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
 
     Route::middleware('admin')->group(function () {
-        Route::apiResource('books', BookController::class)->only('store','update','destroy');
+        Route::apiResource('livres', BookController::class)->only('store','update','destroy');
         Route::apiResource('category', controller: CategoryController::class);
+        Route::apiResource('statistiques', controller: TestController::class);
     });
-Route::apiResource('books',BookController::class);
+Route::apiResource('livres',BookController::class);
 
 });

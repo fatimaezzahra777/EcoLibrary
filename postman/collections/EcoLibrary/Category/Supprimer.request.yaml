@@ -1,5 +1,5 @@
 $kind: http-request
 name: Supprimer
-url: /category/{id}
+url: "{{base_url}}/category"
 method: DELETE
 order: 4148486020904503

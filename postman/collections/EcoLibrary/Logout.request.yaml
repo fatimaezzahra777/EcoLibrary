@@ -4,7 +4,7 @@ url: "{{base_url}}/logout"
 method: POST
 headers:
   Accept: application/json
-  Authorization: Bearer 2|PqanVnuAZScJhtWRkLgKenMCweMaVfLJEEK3C7LG16fcc71d
+  Authorization: Bearer 4|LY4EUotrEO004LM1StIVB19YqpbPeGxNy9RIXgCn0a5e987c
 body:
   type: json
   content: ""
