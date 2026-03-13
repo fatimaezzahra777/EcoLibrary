@@ -10,6 +10,17 @@ class BookController extends Controller
     /**
      * Display a listing of the resource.
      */
+    /**
+     * @OA\Get(
+     *     path="/api/books",
+     *     summary="Afficher tous les livres",
+     *     tags={"Books"},
+     *     @OA\Response(
+     *         response=200,
+     *         description="Liste des livres"
+     *     )
+     * )
+     */
     public function index()
     {
         return Book::with('category')->get();
