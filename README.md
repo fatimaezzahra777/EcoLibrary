@@ -1,59 +1,343 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📚 EcoLibrary API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 📌 Description
+EcoLibrary est une API REST développée avec **Laravel** permettant de gérer une bibliothèque numérique.
 
-## About Laravel
+Le système permet :
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- de gérer les **catégories de livres**
+- de gérer les **livres dans chaque catégorie**
+- de suivre l'état des livres (livres dégradés)
+- de consulter des **statistiques sur la collection**
+- d'utiliser une **authentification sécurisée avec Laravel Sanctum**
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# 🎯 Objectifs du projet
 
-## Learning Laravel
+- Gestion des catégories
+- Gestion des livres
+- Recherche de livres
+- Statistiques sur la collection
+- Suivi des livres dégradés
+- Documentation API
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+# 🛠 Technologies utilisées
 
-## Laravel Sponsors
+- PHP
+- Laravel
+- MySQL
+- Laravel Sanctum
+- Postman
+- Swagger
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+# ⚙ Installation du projet
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 1️⃣ Cloner le projet
 
-## Contributing
+```bash
+git clone https://github.com/username/ecolibrary.git
+cd ecolibrary
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 2️⃣ Installer les dépendances
 
-## Code of Conduct
+```bash
+composer install
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 3️⃣ Configurer l'environnement
 
-## Security Vulnerabilities
+Copier le fichier `.env`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+cp .env.example .env
+```
 
-## License
+Configurer la base de données dans `.env`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+DB_DATABASE=EcoLibrary
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+---
+
+## 4️⃣ Générer la clé Laravel
+
+```bash
+php artisan key:generate
+```
+
+---
+
+## 5️⃣ Lancer les migrations
+
+```bash
+php artisan migrate
+```
+
+---
+
+## 6️⃣ Lancer le serveur
+
+```bash
+php artisan serve
+```
+
+Le serveur sera disponible sur :
+
+```
+http://127.0.0.1:8000
+```
+
+---
+
+# 🔐 Authentification
+
+L'API utilise **Laravel Sanctum**.
+
+## Register
+
+**POST**
+
+```
+/api/register
+```
+
+### Body JSON
+
+```json
+{
+"name": "FatimaEzzahra",
+"email": "fatima@gmail.com",
+"password": "password",
+"password_confirmation": "password"
+}
+```
+
+---
+
+## Login
+
+**POST**
+
+```
+/api/login
+```
+
+### Body JSON
+
+```json
+{
+"email": "fatima@gmail.com",
+"password": "password"
+}
+```
+
+### Réponse
+
+```json
+{
+"user": {...},
+"token": "1|xxxxxxxxxxxxx"
+}
+```
+
+Utiliser ce token dans les requêtes protégées :
+
+```
+Authorization: Bearer TOKEN
+```
+
+---
+
+## Logout
+
+**POST**
+
+```
+/api/logout
+```
+
+Header :
+
+```
+Authorization: Bearer TOKEN
+```
+
+---
+
+# 📂 Gestion des catégories
+
+## Voir toutes les catégories
+
+**GET**
+
+```
+/api/categories
+```
+
+---
+
+## Ajouter une catégorie
+
+**POST**
+
+```
+/api/categories
+```
+
+### Body JSON
+
+```json
+{
+"name": "Informatique",
+"description": "Livres de programmation"
+}
+```
+
+---
+
+## Modifier une catégorie
+
+**PUT**
+
+```
+/api/categories/{id}
+```
+
+---
+
+## Supprimer une catégorie
+
+**DELETE**
+
+```
+/api/categories/{id}
+```
+
+---
+
+# 📚 Gestion des livres
+
+## Voir tous les livres
+
+**GET**
+
+```
+/api/books
+```
+
+---
+
+## Ajouter un livre
+
+**POST**
+
+```
+/api/books
+```
+
+### Body JSON
+
+```json
+{
+"title": "Laravel pour débutant",
+"author": "John Doe",
+"description": "Guide Laravel",
+"publication_year": 2023,
+"category_id": 1
+}
+```
+
+---
+
+## Modifier un livre
+
+**PUT**
+
+```
+/api/books/{id}
+```
+
+---
+
+## Supprimer un livre
+
+**DELETE**
+
+```
+/api/books/{id}
+```
+
+---
+
+# 📊 Statistiques
+
+## Statistiques globales
+
+**GET**
+
+```
+/api/statistics
+```
+
+Retourne :
+
+- nombre total de livres
+- nombre total de catégories
+- nombre total d'utilisateurs
+
+---
+
+## Livres les plus consultés
+
+**GET**
+
+```
+/api/statistics/popular-books
+```
+
+---
+
+
+# 🔒 Middleware
+
+Le projet utilise deux middlewares :
+
+- `auth:sanctum` → routes protégées
+- `admin` → accès réservé aux administrateurs
+
+---
+
+# 📖 Documentation API
+
+Documentation disponible via :
+
+## Swagger
+
+```
+/api/documentation
+```
+
+ou via une **collection Postman**.
+
+---
+
+# 👩‍💻 Auteur
+
+Projet réalisé par :
+
+**FatimaEzzahra Belissaoui**
+
+---
+
+# 📜 Licence
+
+Projet éducatif.
