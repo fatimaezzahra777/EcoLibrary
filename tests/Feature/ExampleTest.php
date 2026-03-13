@@ -12,12 +12,3 @@ test('test_the_application_returns_a_successful_response', function(){
         ->get('/api/books')
         ->assertStatus(200);
 });
-
-
-
-test('can add a category ',function (){
-    $amine = 234;
-    expect($amine)->toBeString();
-
-
-});

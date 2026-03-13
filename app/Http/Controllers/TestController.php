@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Book;
+use App\Models\Category;
+use App\Models\User;
+
 
 class TestController extends Controller
 {
@@ -11,7 +15,11 @@ class TestController extends Controller
      */
     public function index()
     {
-        
+        return response()->json([
+        'total_books' => Book::count(),
+        'total_categories' => Category::count(),
+        'total_users' => User::count()
+    ]);
     }
 
     /**
